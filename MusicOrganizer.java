@@ -78,4 +78,16 @@ public class MusicOrganizer
             System.out.println(rango);
         }
     }
+    
+    /**
+     * Este método devuleve un valor booleano en función de si su parámetro entero es un 
+     * índice válido (true) o no (false) para el.
+     */
+    public boolean validIndex(int index) {
+        boolean valorDevuelto = false;
+        if ((index >= 0 && index < files.size())) {
+            valorDevuelto = true;
+        }
+        return valorDevuelto;
+    }
 }
