@@ -66,19 +66,19 @@ public class MusicOrganizer
      * Si el parámetro no es válido debe mostrar un mensaje de error por pantalla e indicar el rango válido. 
      */
     public void checkIndex(int index) {
-         if (getNumberOfFiles() == 0) { //Si no tenemos ningún fichero en nuestra coleccion no debería comprobar el valor y nos avisa de ello.
-            System.out.println("No hay ningún fichero en nuestra colección de música");
+        String badIndice = "El valor introducido no es un índice válido, ";
+        if (getNumberOfFiles() == 0) { //Si no tenemos ningún fichero en nuestra coleccion no debería comprobar el valor y nos avisa de ello.
+            System.out.println(badIndice + "no hay ningún fichero en nuestra colección de música.");
         }
-        else if (!(index >= 0 && index < files.size())) { //Comprueba si el valor no está dentro del rango.
-            String rango = "Solo puede introducir el 0 como valor para el incice";//Cuando solo hay un fichero solo puede introducir el 0, no hay rango.
+        else if (!(index >= 0 && index < files.size())) { //Comprueba si el valor no está dentro del rango cuando hay algún fichero en nuestta colección.
+            String rango = "solo puede introducir el 0 como valor para el incice.";//Cuando solo hay un fichero solo puede introducir el 0, no hay rango.
             if (files.size() > 1) { //Si hay más de un fichero existe un rango.
-                rango = "Debe de introducir un valor entre 0 y " + (files.size() - 1);//Muestra el rango.
+                rango = "debe de introducir un valor entre 0 y " + (files.size() - 1) + " ambos incluídos.";//Muestra el rango.
             } 
-            System.out.println("El valor introducido no es un índice válido");
-            System.out.println(rango);
+            System.out.println(badIndice + rango);
         }
     }
-    
+
     /**
      * Este método devuleve un valor booleano en función de si su parámetro entero es un 
      * índice válido (true) o no (false) para el.
